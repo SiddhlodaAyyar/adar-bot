@@ -35,10 +35,10 @@ while 1:
                 avl = y["available_capacity"]
                 age_limit = y["min_age_limit"]
                 log_time = datetime.now().strftime("%H:%M:%S")
-                if (avl > 0) and (age_limit == 18):
+                if (avl > 0) and (age_limit == 45):
                     data = {
                         'chat_id': '-599964487',
-                        'text': 'Vaccine aya hai bsdk, book karle.\n\n '+'Vaccine Capacity : '+str(avl)+'\n\n' + center_name + ' : idhar jaake marwa ke le.\n\n' + str(pincode) + ' : iss pincode pe.\n\n'+'age_limit : ' + str(age_limit) + '. 18 saal ka hoga toh jaa nahi toh gharmei baithke porn dekh.\n\n'+'Last Checked availability : ' + log_time
+                        'text': 'Vaccine aya hai bsdk, book karle.\n\n '+'Avl_Date : '+date+'\n\nVaccine Capacity : '+str(avl)+'\n\n' + center_name + ' : idhar jaake marwa ke le.\n\n' + str(pincode) + ' : iss pincode pe.\n\n'+'age_limit : ' + str(age_limit) + '. 18 saal ka hoga toh jaa nahi toh gharmei baithke porn dekh.\n\n'+'Last Checked availability : ' + log_time
                     }
 
                     requests.post('https://api.telegram.org/bot1797289547:AAE-8ENA0LyzCQZdPm0SXwDkTYEGTPZQruk/sendMessage',

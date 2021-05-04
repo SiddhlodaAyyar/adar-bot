@@ -43,4 +43,4 @@ while 1:
 
                     requests.post('https://api.telegram.org/bot1797289547:AAE-8ENA0LyzCQZdPm0SXwDkTYEGTPZQruk/sendMessage',
                                  data=data)
-    time.sleep(360)
+    time.sleep(200)

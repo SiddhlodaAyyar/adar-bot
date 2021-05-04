@@ -35,7 +35,7 @@ while 1:
                 avl = y["available_capacity"]
                 age_limit = y["min_age_limit"]
                 log_time = datetime.now().strftime("%H:%M:%S")
-                if (avl > 0) and (age_limit == 18):
+                if (avl == 0) and (age_limit == 18):
                     data = {
                         'chat_id': '-599964487',
                         'text': 'Vaccine ali re makda , book karun ghe.\n\n '+'Avl_Date : '+date+'\n\nVaccine Capacity : '+str(avl)+'\n\n' + center_name + ' : Ikde jaun mahaprasadacha laabh ghyava.\n\n' + str(pincode) + ' : Pincode.\n\n'+'age_limit : ' + str(age_limit) + '. 18 varshacha ghoda asshil tarach jaa.\n\n'+'Last Checked availability : ' + log_time

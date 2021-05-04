@@ -26,13 +26,14 @@ while 1:
         li_centers = getAvl(pins, check_date)
 
         if not li_centers:
-            data = {
-                'chat_id': '-599964487',
-                'text': 'Server not returning any data.'
-            }
+            pass
+            #data = {
+            #    'chat_id': '-599964487',
+            #    'text': 'Server not returning any data.'
+            #}
 
-            requests.post('https://api.telegram.org/bot1797289547:AAE-8ENA0LyzCQZdPm0SXwDkTYEGTPZQruk/sendMessage',
-                         data=data)
+            #requests.post('https://api.telegram.org/bot1797289547:AAE-8ENA0LyzCQZdPm0SXwDkTYEGTPZQruk/sendMessage',
+            #             data=data)
 
         else:
 
@@ -56,4 +57,4 @@ while 1:
 
                         requests.post('https://api.telegram.org/bot1797289547:AAE-8ENA0LyzCQZdPm0SXwDkTYEGTPZQruk/sendMessage',
                                      data=data)
-    time.sleep(300)
+    time.sleep(200)

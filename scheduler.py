@@ -5,7 +5,8 @@ import requests
 import json
 import time
 from datetime import datetime
-
+import sys
+sys.stdout = open('logfile', 'w')
 
 def getAvl(pincode, date):
     # req = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=" + pincode + "&date=" + date
@@ -59,4 +60,4 @@ while 1:
 
                         requests.post('https://api.telegram.org/bot1797289547:AAE-8ENA0LyzCQZdPm0SXwDkTYEGTPZQruk/sendMessage',
                                      data=data)
-    time.sleep(180)
+    time.sleep(150)

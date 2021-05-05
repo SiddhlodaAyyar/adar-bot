@@ -41,6 +41,8 @@ def getAvl(pincode, date):
     except requests.exceptions.RequestException as err:
         logger.info(err)
         return []
+    except:
+        return []
 
         
 

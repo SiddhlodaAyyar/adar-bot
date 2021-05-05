@@ -10,12 +10,26 @@ def sink(message):
 
 
 logger = logger.bind(name="your_specific_logger")
+logger.info("new code")
 
 
 def getAvl(pincode, date):
     req = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=" + pincode + "&date=" + date
-    headers = {'Accept': 'application/json',
-               'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36'}
+    headers = {'accept': 'application/json',
+               'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36',
+               'accept-encoding':'gzip, deflate, br',
+               'accept-language':'en-GB,en-US;q=0.9,en;q=0.8',
+               'cache-control':'max-age=0',
+               'if-none-match':'W/"ccd-DeAb/ViUblHznj9Xg1k68wHGzUE"',
+               'sec-ch-ua':'" Not A;Brand";v="99", "Chromium";v="90", "Google Chrome";v="90"',
+               'sec-ch-ua-mobile':'?0',
+               'sec-fetch-dest':'document',
+               'sec-fetch-mode':'navigate',
+               'sec-fetch-site':'none',
+               'sec-fetch-user':'?1',
+               'upgrade-insecure-requests':'1'
+
+               }
     try:
         data = requests.get((req) , headers=headers)
         #li = data.json()["centers"]

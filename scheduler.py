@@ -17,7 +17,7 @@ def getAvl(pincode, date):
     headers = {'Accept': 'application/json',
                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36'}
     try:
-        data = requests.get(req, headers=headers)
+        data = requests.get((req) , headers=headers)
         #li = data.json()["centers"]
         data.raise_for_status()
         return data
@@ -60,3 +60,4 @@ while 1:
 
 
     time.sleep(150)
+

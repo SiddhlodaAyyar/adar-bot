@@ -25,10 +25,24 @@ def getAvl(pincode, date):
         req = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=" + pincode + "&date=" + date
         headers = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
+        
         li = requests.get(req, headers=headers).json()["centers"]
+        li.raise_for_status()
         return li
-    except:
+    except requests.exceptions.HTTPError as errh:
+        logger.info(errh)
         return []
+    except requests.exceptions.ConnectionError as errc:
+        logger.info(errc)
+        return []
+    except requests.exceptions.Timeout as errt:
+        logger.info(errt)
+        return []
+    except requests.exceptions.RequestException as err:
+        logger.info(err)
+        return []
+
+        
 
 pincodes = ["411011", "411001", "411033", "411006", "411028", "411038","411041","411027","411018","411035","411026","411017","411044"]
 check_date = "05-05-2021"

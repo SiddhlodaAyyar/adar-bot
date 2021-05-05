@@ -7,6 +7,17 @@ import time
 from datetime import datetime
 import sys
 
+from loguru import logger
+
+def sink(message):
+  record = message.record
+  if record.get("name") == "your_specific_logger":
+    print("Log comes from your specific logger")
+
+logger = logger.bind(name="your_specific_logger")
+
+
+
 
 def getAvl(pincode, date):
     # req = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=" + pincode + "&date=" + date
@@ -27,8 +38,11 @@ while 1:
     for pins in pincodes:
 
         li_centers = getAvl(pins, check_date)
+        
+        logger.info(li_centers)
 
         if not li_centers:
+            logger.info('Server not returning any data.')
             pass
             #data = {
             #    'chat_id': '-599964487',
@@ -40,9 +54,9 @@ while 1:
 
         else:
 
-            for x in li_centers:
-                print(json.dumps(x, indent=4, sort_keys=False))
-                sys.stdout.flush()
+            #for x in li_centers:
+                #logger.info(json.dumps(x, indent=4, sort_keys=False))
+                #print(json.dumps(x, indent=4, sort_keys=False))
 
             for x in li_centers:
                 center_name = x["name"]

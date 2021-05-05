@@ -6,7 +6,7 @@ import json
 import time
 from datetime import datetime
 import sys
-sys.stdout = open('logfile', 'w')
+
 
 def getAvl(pincode, date):
     # req = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=" + pincode + "&date=" + date
@@ -42,6 +42,7 @@ while 1:
 
             for x in li_centers:
                 print(json.dumps(x, indent=4, sort_keys=False))
+                sys.stdout.flush()
 
             for x in li_centers:
                 center_name = x["name"]

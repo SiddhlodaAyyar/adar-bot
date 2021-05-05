@@ -41,7 +41,10 @@ def getAvl(pincode, date):
     except requests.exceptions.RequestException as err:
         logger.info(err)
         return []
-    except:
+    except Exception as ex:
+        template = "An exception of type {0} occurred. Arguments:\n{1!r}"
+        message = template.format(type(ex).__name__, ex.args)
+        logger.info(message)
         return []
 
         

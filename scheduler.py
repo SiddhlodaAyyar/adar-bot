@@ -11,13 +11,15 @@ def getAvl(pincode, date):
     # req = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=" + pincode + "&date=" + date
     try:
         req = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=" + pincode + "&date=" + date
-        li = requests.get(req).json()["centers"]
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
+        li = requests.get(req, headers=headers).json()["centers"]
         return li
     except:
         return []
 
 pincodes = ["411011", "411001", "411033", "411006", "411028", "411038","411041","411027","411018","411035","411026","411017","411044"]
-check_date = "03-05-2021"
+check_date = "05-05-2021"
 
 while 1:
 
@@ -37,8 +39,8 @@ while 1:
 
         else:
 
-            # for x in li_centers:
-            #     print(json.dumps(x, indent=4, sort_keys=False))
+            for x in li_centers:
+                print(json.dumps(x, indent=4, sort_keys=False))
 
             for x in li_centers:
                 center_name = x["name"]
@@ -57,4 +59,4 @@ while 1:
 
                         requests.post('https://api.telegram.org/bot1797289547:AAE-8ENA0LyzCQZdPm0SXwDkTYEGTPZQruk/sendMessage',
                                      data=data)
-    time.sleep(200)
+    time.sleep(180)
